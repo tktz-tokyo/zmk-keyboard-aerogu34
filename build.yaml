@@ -1,11 +1,5 @@
 ---
 include:
-  # Central (right) — Prospector enabled (default)
-  - board: xiao_ble/nrf52840/zmk
-    shield: aerogu34_right rgbled_adapter
-    snippet: studio-rpc-usb-uart
-    artifact-name: aerogu34_right_prospector
-
   # Central (right) — Prospector disabled
   - board: xiao_ble/nrf52840/zmk
     shield: aerogu34_right rgbled_adapter

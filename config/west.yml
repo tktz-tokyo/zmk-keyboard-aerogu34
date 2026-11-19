@@ -10,12 +10,18 @@ manifest:
       url-base: https://github.com/caksoylar
     - name: prospector
       url-base: https://github.com/t-ogura
+    - name: tktz
+      url-base: https://github.com/tktz-tokyo
   projects:
     # ZMK: cormoran fork, main+dya = ZMK main (Zephyr 4.1) base with DYA Studio RPC
     - name: zmk
       remote: cormoran
       revision: main+dya
       import: app/west.yml
+    # Naginata Japanese input behavior
+    - name: zmk-naginata
+      remote: tktz
+      revision: main
     # Trackball driver
     - name: zmk-driver-paw3222
       remote: sekigon-gonnoc

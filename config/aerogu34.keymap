@@ -5,6 +5,9 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <behaviors/naginata.dtsi>
+
+#define NAGINATA_LAYER 5
 
 // OS設定を日本語キーボードのまま使用するための変換定義
 
@@ -40,6 +43,20 @@
 &lt { quick-tap-ms = <300>; };
 
 / {
+    macros {
+        ng_on: ng_on {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LANGUAGE_1 &kp INTERNATIONAL_4 &to NAGINATA_LAYER>;
+        };
+
+        ng_off: ng_off {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LANGUAGE_2 &kp INTERNATIONAL_5 &to 0>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -52,6 +69,19 @@
         stab {
             bindings = <&kp LS(TAB)>;
             key-positions = <12 13>;
+            layers = <0 1 2 3 4>;
+        };
+
+        naginata_on {
+            bindings = <&ng_on>;
+            key-positions = <15 16>; // H + J
+            layers = <0>;
+        };
+
+        naginata_off {
+            bindings = <&ng_off>;
+            key-positions = <13 14>; // F + G
+            layers = <NAGINATA_LAYER>;
         };
 
         btreset {
@@ -69,21 +99,25 @@
         lwin {
             bindings = <&kp LEFT_WIN>;
             key-positions = <20 21>;
+            layers = <0 1 2 3 4>;
         };
 
         lalt {
             bindings = <&kp LEFT_ALT>;
             key-positions = <20 22>;
+            layers = <0 1 2 3 4>;
         };
 
         rwin {
             bindings = <&kp RIGHT_WIN>;
             key-positions = <29 28>;
+            layers = <0 1 2 3 4>;
         };
 
         ralt {
             bindings = <&kp RIGHT_ALT>;
             key-positions = <29 27>;
+            layers = <0 1 2 3 4>;
         };
     };
 
@@ -137,6 +171,16 @@
 &trans  &trans  &trans  &trans  &trans                    &trans  &mkp MB1  &trans    &mkp MB2  &trans
 &trans  &trans  &trans  &trans  &trans                    &trans  &trans    &trans    &trans    &trans
                                 &trans  &trans    &trans  &trans
+            >;
+        };
+
+        naginata_layer {
+            display-name = "Naginata";
+            bindings = <
+&ng Q  &ng W  &ng E  &ng R  &ng T                    &ng Y  &ng U  &ng I      &ng O    &ng P
+&ng A  &ng S  &ng D  &ng F  &ng G                    &ng H  &ng J  &ng K      &ng L    &ng SEMI
+&ng Z  &ng X  &ng C  &ng V  &ng B                    &ng N  &ng M  &ng COMMA  &ng DOT  &ng SLASH
+                            &ng SPACE  &kp GRAVE  &kp BACKSPACE  &ng ENTER
             >;
         };
     };

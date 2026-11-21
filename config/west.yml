@@ -12,6 +12,8 @@ manifest:
       url-base: https://github.com/t-ogura
     - name: tktz
       url-base: https://github.com/tktz-tokyo
+    - name: kot149
+      url-base: https://github.com/kot149
   projects:
     # ZMK: cormoran fork, main+dya = ZMK main (Zephyr 4.1) base with DYA Studio RPC
     - name: zmk
@@ -22,6 +24,10 @@ manifest:
     - name: zmk-naginata
       remote: tktz
       revision: main
+    # Trackball gesture
+    - name: zmk-mouse-gesture
+      remote: kot149
+      revision: v1
     # Trackball driver
     - name: zmk-driver-paw3222
       remote: sekigon-gonnoc

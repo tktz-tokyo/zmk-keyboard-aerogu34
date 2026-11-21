@@ -1,5 +1,7 @@
 # Aerogu
 現在テスター向けに販売しているAeroguのファームウェア置き場
+ビルドガイド
+https://ogu-key.notion.site/Aerogu-protoB-3514983a010b80ddb312ca7c2b4e8c9f#3624983a010b807eb3aeeb282263743a
 
 ## ファームウェアのビルド
 

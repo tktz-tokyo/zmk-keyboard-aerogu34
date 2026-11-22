@@ -23,7 +23,7 @@ manifest:
     # Naginata Japanese input behavior
     - name: zmk-naginata
       remote: tktz
-      revision: fix/ios-symbol-input
+      revision: 8ce05245d3c34272404b0979cd0843c884f928dd
     # Trackball gesture
     - name: zmk-mouse-gesture
       remote: kot149

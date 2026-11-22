@@ -188,6 +188,14 @@
             layers = <NAGINATA_LAYER>;
         };
 
+        // Ignore the Naginata OFF combo when already in Base.
+        // Without this, pressing F+G to turn Naginata off again types "fg".
+        naginata_off_base_noop {
+            bindings = <&none>;
+            key-positions = <13 14>; // F + G
+            layers = <0>;
+        };
+
         gesture {
             timeout-ms = <50>;
             slow-release;

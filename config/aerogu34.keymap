@@ -95,6 +95,22 @@
             #binding-cells = <0>;
             bindings = <&macro_tap &kp LANGUAGE_2 &kp INTERNATIONAL_5 &to 0>;
         };
+        
+        // Named wrappers for DYA Studio: avoid raw Naginata HID numbers
+        // (F16/F20) on the Settings layer.
+        ng_mac_os: ng_mac_os {
+            compatible = "zmk,behavior-macro";
+            label = "Naginata Mac OS";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &ng F16>;
+        };
+
+        ng_ios_os: ng_ios_os {
+            compatible = "zmk,behavior-macro";
+            label = "Naginata iOS";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &ng F20>;
+        };
 
         gesture_mode: gesture_mode {
             compatible = "zmk,behavior-macro";
@@ -320,7 +336,7 @@
             display-name = "Settings";
             bindings = <
 &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4      &trans  &trans  &trans  &trans  &bt BT_CLR
-&studio_unlock &trans         &trans         &trans         &trans               &trans  &trans  &trans  &trans  &trans
+&studio_unlock &trans         &trans         &trans         &trans               &ng_mac_os &ng_ios_os &trans  &trans  &trans
 &sys_reset     &bootloader    &trans         &trans         &trans               &trans  &trans  &trans  &trans  &trans
                                               &trans  &trans  &trans  &trans
             >;

@@ -176,6 +176,14 @@
             layers = <0 1 2 3 5>;
         };
 
+        // Match Naginata's built-in V+M Enter chord on the Base layer.
+        // Restrict to Base so the Naginata input processor handles its own V+M.
+        base_enter_vm {
+            bindings = <&kp ENTER>;
+            key-positions = <23 26>; // V + M
+            layers = <0>;
+        };
+
         naginata_on {
             bindings = <&ng_on>;
             key-positions = <15 16>; // H + J
@@ -246,7 +254,7 @@
 &kp Q                 &kp W              &kp E     &kp R  &kp T                                  &kp Y  &kp U  &kp I          &kp O  &lt SCROLL_LAYER P
 &mt LCTRL A            &kp S              &kp D     &kp F  &kp G                                  &kp H  &kp J  &kp K          &kp L  &mt RCTRL SEMICOLON
 &mt LEFT_SHIFT Z       &mt LEFT_ALT X     &mt LEFT_GUI C  &kp V  &kp B                            &kp N  &kp M  &mt RIGHT_GUI COMMA  &mt RIGHT_ALT DOT  &mt RIGHT_SHIFT SLASH
-                                                &lt NUMBER_LAYER SPACE  &lt SCROLL_LAYER ESC    &kp BACKSPACE  &lt SCROLL_LAYER ENTER
+                                                &lt NUMBER_LAYER SPACE  &lt SCROLL_LAYER ESC    &kp BACKSPACE  &lt SCROLL_LAYER SPACE
             >;
         };
 

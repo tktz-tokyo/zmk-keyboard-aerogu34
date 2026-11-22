@@ -27,11 +27,18 @@
  * Trackball tab's temp-layer toggle actually governs it. Previously this was
  * a static &zip_temp_layer in the listener chain, which the Studio toggle
  * could not reach - users reported AML staying on after disabling it.
- * Defaults reproduce the old behavior: layer 4 (Mouse), instant on, off
- * after 1 s of trackball inactivity. Studio edits persist via settings. */
+ * Defaults now target layer 5 (Mouse), instant on, off after 1 s of
+ * trackball inactivity. Studio edits persist via the new settings key. */
+/* Version the runtime processor's persisted settings key when the layer
+ * topology changes. DYA Studio stores the previous target (Mouse=4); after
+ * inserting Naginata at layer 4, Mouse moved to 5. Reusing the old "mouse"
+ * key would silently restore the obsolete target (or a disabled AML) over
+ * these defaults. The new label starts with a clean config on existing devices.
+ * User-tuned trackball settings will need to be reapplied in Studio. */
 &mouse_runtime_input_processor {
+    processor-label = "mouse2";
     temp-layer-enabled;
-    temp-layer = <4>;
+    temp-layer = <5>;
     temp-layer-activation-delay-ms = <0>;
     temp-layer-deactivation-delay-ms = <1000>;
 };
@@ -67,6 +74,7 @@
         input-processors = <&deadzone_processor
                             &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
                             &mouse_runtime_input_processor
+                            &zip_mouse_gesture
                             &scroll_runtime_input_processor>;
     };
 };

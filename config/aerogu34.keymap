@@ -228,14 +228,24 @@
             layers = <0 NAGINATA_LAYER>;
         };
 
-        // Hold . + / to enter Settings; release either key to return.
-        // This replaces Q+P and avoids holding Settings' Q/P selection keys.
+        // Hold . + / to enter Settings; release both keys to return.
+        // The Base/Mouse timing is already verified on real hardware.
         settings {
             timeout-ms = <50>;
             slow-release;
             bindings = <&mo SETTINGS_LAYER>;
             key-positions = <28 29>; // . + /
-            layers = <0 NAGINATA_LAYER MOUSE_LAYER>;
+            layers = <0 MOUSE_LAYER>;
+        };
+
+        // Naginata: allow a longer interval between the two presses.
+        // Keep this separate to avoid changing the proven Base behavior.
+        naginata_settings {
+            timeout-ms = <150>;
+            slow-release;
+            bindings = <&mo SETTINGS_LAYER>;
+            key-positions = <28 29>; // . + /
+            layers = <NAGINATA_LAYER>;
         };
 
         lwin {

@@ -23,7 +23,7 @@ manifest:
     # Naginata Japanese input behavior
     - name: zmk-naginata
       remote: tktz
-      revision: 8fc034a53eafa43940c05ae5164f28abaf44c56a
+      revision: 1ffe3a57b51163307896d8b294d3129ce5d2e30b
     # Trackball gesture
     - name: zmk-mouse-gesture
       remote: kot149

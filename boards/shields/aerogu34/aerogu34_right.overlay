@@ -36,7 +36,7 @@
  * these defaults. The new label starts with a clean config on existing devices.
  * User-tuned trackball settings will need to be reapplied in Studio. */
 &mouse_runtime_input_processor {
-    processor-label = "mouse-v2";
+    processor-label = "mouse2";
     temp-layer-enabled;
     temp-layer = <5>;
     temp-layer-activation-delay-ms = <0>;

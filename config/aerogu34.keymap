@@ -212,12 +212,14 @@
             layers = <0 NAGINATA_LAYER>;
         };
 
+        // Hold . + / to enter Settings; release either key to return.
+        // This replaces Q+P and avoids holding Settings' Q/P selection keys.
         settings {
             timeout-ms = <50>;
             slow-release;
             bindings = <&mo SETTINGS_LAYER>;
-            key-positions = <0 9>; // Q + P
-            layers = <0 NAGINATA_LAYER>;
+            key-positions = <28 29>; // . + /
+            layers = <0 NAGINATA_LAYER MOUSE_LAYER>;
         };
 
         lwin {
@@ -229,12 +231,6 @@
         lalt {
             bindings = <&kp LEFT_ALT>;
             key-positions = <20 22>;
-            layers = <0 1 2 3 5>;
-        };
-
-        rwin {
-            bindings = <&kp RIGHT_WIN>;
-            key-positions = <29 28>;
             layers = <0 1 2 3 5>;
         };
 
